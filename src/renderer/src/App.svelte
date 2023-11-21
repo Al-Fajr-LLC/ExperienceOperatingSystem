@@ -21,6 +21,11 @@
 			},
 			{
 				type: ElementType.Action,
+				label: "Cat",
+				side: Side.Start
+			},
+			{
+				type: ElementType.Action,
 				label: "Enter",
 				side: Side.End
 			}
@@ -28,6 +33,17 @@
 	>
 		<input />
 	</Control>
+
+	<Control 
+		has_slot={false}
+		elements={[
+			{
+				type: ElementType.Action,
+				label: "Submit",
+				side: Side.End
+			}
+		]}
+	></Control>
 </div>
 
 <style lang="scss">
@@ -54,7 +70,7 @@
 			border: none;
 			outline: none;
 			color: $text;
-			padding: 0;
+			padding: $padding;
 			margin: 0;
 			width: 100%;
 		}

@@ -17,13 +17,15 @@
 
     .root {
         .hr {
-            width: 100%;
+            width: calc(100% - ($padding-horizontal * 2));
             height: $stroke-width;
+            margin: 0 $padding-horizontal;
         }
 
         .vr {
             width: $stroke-width;
-            height: 100%;
+            height: calc(100% - ($padding-vertical * 2));
+            margin: $padding-vertical 0;
         }
 
         .stroke {
