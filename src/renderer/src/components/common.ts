@@ -34,7 +34,19 @@ export enum PixelMetricType {
     Initial
 }
 
-export function translate_pixel_metric(initial: null | number = null, pixel_metric: PixelMetric) {
+export enum Attention {
+    None,
+    Active,
+    Idle,
+    Error
+}
+
+export interface XYCordinate {
+    horizontal: number,
+    vertical: number
+}
+
+export function translate_pixel_metric(initial: null | number = null, pixel_metric: PixelMetric, orientation = Orientation.Horizontal) {
     let target = "";
     
     const max_width = pixel_metric.max != undefined ? (pixel_metric.max + "px") : "initial";
@@ -54,10 +66,18 @@ export function translate_pixel_metric(initial: null | number = null, pixel_metr
             break;
     }
 
+    if (orientation == Orientation.Horizontal) {
+        return `
+            width: ${target};
+            max-width: ${max_width};
+            min-width: ${min_width};
+        `;
+    }
+
     return `
-        width: ${target};
-        max-width: ${max_width};
-        min-width: ${min_width};
+        height: ${target};
+        max-height: ${max_width};
+        min-height: ${min_width};
     `;
 }
 

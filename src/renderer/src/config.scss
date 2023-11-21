@@ -2,9 +2,10 @@ $root-layer: #0B0B0B;
 $surface: rgba(255, 255, 255, 4%);
 $surface-secondary: rgba(255, 255, 255, 6%);
 
-$accent: #FF6E6E;
-$accent-secondary: #FF6E6E9d;
+$accent: #00FFD1;
+$accent-secondary: #00FFD19d;
 $disabled: rgba(255, 255, 255, 30%);
+$error: #FF004D;
 
 $padding-horizontal: 20px;
 $padding-vertical: 10px;
@@ -12,7 +13,7 @@ $padding: $padding-vertical $padding-horizontal;
 
 $text: #fff;
 $secondary: #999;
-$size: 13px;
+$size: 10px;
 
 $stroke-color: rgba(255, 255, 255, 15%);
 $stroke-width: 1px;

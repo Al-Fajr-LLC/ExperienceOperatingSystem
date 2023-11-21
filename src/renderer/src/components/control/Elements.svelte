@@ -1,5 +1,6 @@
 <script lang="ts">
     import Divider from "../Divider.svelte"
+	import Label from "../Label.svelte";
     import { Orientation, Side } from "../common"
     import { ElementType, type Element } from "./control";
 
@@ -18,9 +19,9 @@
         <Divider orientation={Orientation.Vertical} />
     {/if}
 
-    {#each elements.filter(el => el.side == side) as (element, index)}
+    {#each elements.filter(el => el.side == side) as element, index}
 		{#if element.type == ElementType.Label}
-            <div class="label">{element.label}</div>
+            <Label text={element.label} secondary={true} />
         {:else if element.type == ElementType.Action}
             <div class="action">
                 <div class="label">{element.label}</div>
@@ -28,8 +29,8 @@
             </div>
         {/if}
 
-        {#if index != elements.length - 1}
-
+        {#if index < elements.filter(el => el.side == side).length - 1}
+            <Divider orientation={Orientation.Vertical} />
         {/if}
 	{/each}
 
@@ -47,9 +48,14 @@
         .label {
             color: $secondary;
             padding: $padding;
+            white-space: nowrap;
+            font-size: $size;
+            user-select: none;
         }
 
         .action {
+            position: relative;
+
             .label {
                 color: $accent;
                 cursor: pointer;
