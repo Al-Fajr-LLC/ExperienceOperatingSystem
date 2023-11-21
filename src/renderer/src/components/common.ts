@@ -16,7 +16,7 @@ interface PixelMetricJustify {
 }
 
 interface PixelMetricConstant {
-    type: PixelMetricType.Justify,
+    type: PixelMetricType.Constant,
     pixels: number,
     max?: number,
     min?: number

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Control from "./components/Control.svelte"
+  	import Control from "./components/Control.svelte"
 	import Label from "./components/Label.svelte";
 	import TrackAndSlider from "./components/TrackAndSlider.svelte";
-  import { Attention, Orientation, PixelMetricType, Side } from "./components/common"
-  import { ElementType } from "./components/control/control"
+  	import { Attention, Orientation, PixelMetricType, Side } from "./components/common"
+  	import { ElementType } from "./components/control/control"
 
 </script>
 
@@ -11,14 +11,10 @@
 	<div class="box">
 		<Label text="Search for anything" />
 		<TrackAndSlider>
-			<p slot="track">T</p>
-			<p slot="slider">S</p>
+			<div slot="track" class="track" />
+			<div slot="slider" class="thumb" />
 		</TrackAndSlider>
 
-		<TrackAndSlider orientation={Orientation.Vertical}>
-			<p slot="track">T</p>
-			<p slot="slider">S</p>
-		</TrackAndSlider>
 		<Control 
 			underline={true}
 			width={{
@@ -67,8 +63,21 @@
 		justify-content: center;
 		align-items: center;
 
+		.thumb {
+			width: 100%;
+			height: 10px;
+			background: $accent;
+		}
+
+		.track {
+			width: 100%;
+			height: 10px;
+			background: $surface;
+		}
+
 		.box {
-			width: 500px;
+			width: 100%;
+			max-width: 500px;
 			display: flex;
 			flex-direction: column;
 			gap: $padding-vertical;
